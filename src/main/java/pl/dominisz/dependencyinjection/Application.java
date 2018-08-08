@@ -9,8 +9,7 @@ public class Application {
 
         BillingService billingService = new CreditCardBillingService();
 
-        PizzaOrder order = new PizzaOrder();
-        order.setAmount(new BigDecimal(45));
+        PizzaOrder order = new PizzaOrder(new BigDecimal(45));
         CreditCard creditCard = new CreditCard("4321432143214321", "Jarosław", "Waszczuk",
                 LocalDate.of(2020,8,31), "012");
 
