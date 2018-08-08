@@ -7,16 +7,24 @@ public class Receipt {
     private BigDecimal amount;
     private String message;
 
-    static Receipt forSuccessfulCharge(BigDecimal amount){
-        return null;
+    public Receipt(BigDecimal amount) {
+        this.amount = amount;
     }
 
-    static Receipt forDeclinedCharge(String message){
-        return null;
+    public Receipt(String message) {
+        this.message = message;
     }
 
-    static Receipt forSystemFailure(String message){
-        return null;
+    public static Receipt forSuccessfulCharge(BigDecimal amount){
+        return new Receipt(amount);
+    }
+
+    public static Receipt forDeclinedCharge(String message){
+        return new Receipt(message);
+    }
+
+    public static Receipt forSystemFailure(String message){
+        return new Receipt(message);
     }
 
 }
