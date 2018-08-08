@@ -1,14 +1,19 @@
 package pl.dominisz.dependencyinjection;
 
+
 public class DatabaseTransactionLog implements TransactionLog {
 
-    @Override
-    public TransactionLog logChargeResult(ChargeResult chargeResult) {
-        return null;
+    public DatabaseTransactionLog(){
+        System.out.println("DatabaseTransactionLog created");
     }
 
     @Override
-    public TransactionLog logConnectException(Exception e) {
-        return null;
+    public void logChargeResult(ChargeResult chargeResult) {
+        System.out.println("Logged charge result "+ chargeResult);
+    }
+
+    @Override
+    public void logConnectException(UnreachableException unreachableException) {
+        System.out.println("Logged connection exception "+ unreachableException);
     }
 }
