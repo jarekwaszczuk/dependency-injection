@@ -10,8 +10,13 @@ public class Application {
         BillingService billingService = new CreditCardBillingService();
 
         PizzaOrder order = new PizzaOrder(new BigDecimal(45));
-        CreditCard creditCard = new CreditCard("4321432143214321", "Jarosław", "Waszczuk",
-                LocalDate.of(2020,8,31), "012");
+        CreditCard creditCard = CreditCard.builder()
+                .number("4321432143214321")
+                .firstName("Jarosław")
+                .lastName("Waszczuk")
+                .expireDate(LocalDate.of(2020,8,31))
+                .cvv("012")
+                .build();
 
         Receipt receipt = billingService.chargeOrder(order,creditCard);
 
