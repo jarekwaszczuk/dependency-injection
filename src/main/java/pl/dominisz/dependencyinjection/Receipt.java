@@ -1,7 +1,10 @@
 package pl.dominisz.dependencyinjection;
 
+import lombok.ToString;
+
 import java.math.BigDecimal;
 
+@ToString
 public class Receipt {
 
     private BigDecimal amount;
