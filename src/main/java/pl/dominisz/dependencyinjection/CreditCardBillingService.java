@@ -2,6 +2,10 @@ package pl.dominisz.dependencyinjection;
 
 public class CreditCardBillingService implements BillingService {
 
+    public CreditCardBillingService(){
+        System.out.println("CreditCardBillingService created");
+    }
+
     public Receipt chargeOrder(PizzaOrder order, CreditCard creditCard) {
         CreditCardProcessor processor = new PaypalCreditCardProcessor();
         TransactionLog transactionLog = new DatabaseTransactionLog();
