@@ -1,6 +1,6 @@
 package pl.dominisz.dependencyinjection;
 
-public class CreditCardBillingService {
+public class CreditCardBillingService implements BillingService {
 
     public Receipt chargeOrder(PizzaOrder order, CreditCard creditCard) {
         CreditCardProcessor processor = new PaypalCreditCardProcessor();
@@ -10,7 +10,7 @@ public class CreditCardBillingService {
             ChargeResult result = processor.charge(creditCard, order.getAmount());
             transactionLog.logChargeResult(result);
 
-            return result.wasSuccessful()
+            return result.isSuccessful()
                     ? Receipt.forSuccessfulCharge(order.getAmount())
                     : Receipt.forDeclinedCharge(result.getDeclineMessage());
         } catch (UnreachableException e) {
