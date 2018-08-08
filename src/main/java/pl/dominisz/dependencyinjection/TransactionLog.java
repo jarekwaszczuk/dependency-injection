@@ -2,7 +2,8 @@ package pl.dominisz.dependencyinjection;
 
 public interface TransactionLog {
 
-    TransactionLog logChargeResult(ChargeResult chargeResult);
+    void logChargeResult(ChargeResult chargeResult);
 
-    TransactionLog logConnectException(Exception e);
+    void logConnectException(UnreachableException unreachableException);
+
 }
