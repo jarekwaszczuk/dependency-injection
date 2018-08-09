@@ -2,13 +2,13 @@ package pl.dominisz.dependencyinjection.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import pl.dominisz.dependencyinjection.model.ChargeResult;
+import org.springframework.stereotype.Service;
 import pl.dominisz.dependencyinjection.exception.UnreachableException;
+import pl.dominisz.dependencyinjection.model.ChargeResult;
 import pl.dominisz.dependencyinjection.repository.ChargeResultRepository;
 import pl.dominisz.dependencyinjection.repository.UnreachableExceptionRepository;
 
-@Component
+@Service
 public class DatabaseTransactionLog implements TransactionLog {
 
     private ChargeResultRepository chargeResultRepository;

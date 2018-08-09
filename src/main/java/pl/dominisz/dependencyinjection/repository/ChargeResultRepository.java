@@ -1,9 +1,9 @@
 package pl.dominisz.dependencyinjection.repository;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import pl.dominisz.dependencyinjection.model.ChargeResult;
 
-@Component
+@Repository
 public class ChargeResultRepository {
 
     public void save(ChargeResult chargeResult){

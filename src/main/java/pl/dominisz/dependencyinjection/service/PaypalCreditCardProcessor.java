@@ -1,6 +1,7 @@
 package pl.dominisz.dependencyinjection.service;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import pl.dominisz.dependencyinjection.model.ChargeResult;
 import pl.dominisz.dependencyinjection.model.CreditCard;
 import pl.dominisz.dependencyinjection.exception.UnreachableException;
@@ -8,7 +9,7 @@ import pl.dominisz.dependencyinjection.exception.UnreachableException;
 import java.math.BigDecimal;
 import java.util.Random;
 
-@Component
+@Service
 public class PaypalCreditCardProcessor implements CreditCardProcessor {
 
     private Random random = new Random();

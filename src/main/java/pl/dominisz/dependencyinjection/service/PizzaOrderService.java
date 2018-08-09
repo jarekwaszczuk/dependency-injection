@@ -2,10 +2,11 @@ package pl.dominisz.dependencyinjection.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import pl.dominisz.dependencyinjection.model.PizzaOrder;
 import pl.dominisz.dependencyinjection.repository.PizzaOrderRepository;
 
-@Component
+@Service
 public class PizzaOrderService {
 
     private final PizzaOrderRepository pizzaOrderRepository;
