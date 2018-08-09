@@ -10,6 +10,13 @@ public class PizzaOrderService {
 
     private final UserService userService;
 
+    public PizzaOrderService(PizzaOrderRepository pizzaOrderRepository, IngredientsService ingredientsService, DiscountCalculator discountCalculator, UserService userService) {
+        this.pizzaOrderRepository = pizzaOrderRepository;
+        this.ingredientsService = ingredientsService;
+        this.discountCalculator = discountCalculator;
+        this.userService = userService;
+    }
+
     public void add(PizzaOrder pizzaOrder){
         //TODO sprawdź składniki w ingredientsService
         //TODO wyszukaj użytkownika w userService
