@@ -11,7 +11,7 @@ public class CreditCardBillingServiceTest {
     @Test
     void testCreditCardBillingService() {
         CreditCardProcessor creditCardProcessor = new TestingCreditCardProcessor();
-        TransactionLog transactionLog = new TestingTransactionLog();
+        TestingTransactionLog transactionLog = new TestingTransactionLog();
         BillingService billingService = new CreditCardBillingService(creditCardProcessor, transactionLog);
         PizzaOrder order = new PizzaOrder(new BigDecimal(45));
         CreditCard creditCard = CreditCard.builder()
@@ -25,5 +25,8 @@ public class CreditCardBillingServiceTest {
         Receipt receipt = billingService.chargeOrder(order, creditCard);
 
         Assertions.assertEquals(new BigDecimal(45), receipt.getAmount());
+        ChargeResult expectedResult = new ChargeResult(true, null);
+        Assertions.assertEquals(1, transactionLog.getChargeResults().size());
+        Assertions.assertEquals(expectedResult, transactionLog.getChargeResults().get(0));
     }
 }

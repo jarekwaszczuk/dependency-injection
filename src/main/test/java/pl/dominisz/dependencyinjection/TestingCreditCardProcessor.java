@@ -6,6 +6,6 @@ public class TestingCreditCardProcessor implements CreditCardProcessor {
 
     @Override
     public ChargeResult charge(CreditCard creditCard, BigDecimal order) {
-        return null;
+        return new ChargeResult(true, null);
     }
 }
