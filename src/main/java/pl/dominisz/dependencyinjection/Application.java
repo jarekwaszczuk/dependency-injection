@@ -1,5 +1,6 @@
 package pl.dominisz.dependencyinjection;
 
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
@@ -11,6 +12,7 @@ import pl.dominisz.dependencyinjection.service.BillingService;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Arrays;
 
 @ComponentScan
 public class Application {
@@ -19,8 +21,15 @@ public class Application {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(Application.class);
         BillingService billingService = applicationContext.getBean(BillingService.class);
 
+        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
+        for (String beanDefinitionName : beanDefinitionNames) {
+            BeanDefinition beanDefinition = ((AnnotationConfigApplicationContext) applicationContext).getBeanDefinition(beanDefinitionName);
+            System.out.println("Bean on: " + beanDefinitionName);
+            System.out.println("   depends on: " + Arrays.toString(beanDefinition.getDependsOn()));
+        }
+
         System.out.println("----------------- START -----------------");
-        for (String beanName: applicationContext.getBeanNamesForAnnotation(Component.class)){
+        for (String beanName : applicationContext.getBeanNamesForAnnotation(Component.class)) {
             System.out.println(beanName);
         }
         System.out.println("------------------ END ------------------");
