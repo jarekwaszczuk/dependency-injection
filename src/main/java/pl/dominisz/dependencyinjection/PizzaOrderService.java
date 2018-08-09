@@ -1,5 +1,9 @@
 package pl.dominisz.dependencyinjection;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class PizzaOrderService {
 
     private final PizzaOrderRepository pizzaOrderRepository;
@@ -10,6 +14,7 @@ public class PizzaOrderService {
 
     private final UserService userService;
 
+    @Autowired
     public PizzaOrderService(PizzaOrderRepository pizzaOrderRepository, IngredientsService ingredientsService, DiscountCalculator discountCalculator, UserService userService) {
         this.pizzaOrderRepository = pizzaOrderRepository;
         this.ingredientsService = ingredientsService;
