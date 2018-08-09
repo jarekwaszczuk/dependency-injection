@@ -12,15 +12,15 @@ public class PizzaOrderService {
 
     private final IngredientsService ingredientsService;
 
-    private final DiscountCalculator discountCalculator;
+    private final DiscountService discountService;
 
     private final UserService userService;
 
     @Autowired
-    public PizzaOrderService(PizzaOrderRepository pizzaOrderRepository, IngredientsService ingredientsService, DiscountCalculator discountCalculator, UserService userService) {
+    public PizzaOrderService(PizzaOrderRepository pizzaOrderRepository, IngredientsService ingredientsService, DiscountService discountService, UserService userService) {
         this.pizzaOrderRepository = pizzaOrderRepository;
         this.ingredientsService = ingredientsService;
-        this.discountCalculator = discountCalculator;
+        this.discountService = discountService;
         this.userService = userService;
     }
 
