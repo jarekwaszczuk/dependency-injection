@@ -29,4 +29,8 @@ public class CreditCardBillingServiceTest {
         Assertions.assertEquals(1, transactionLog.getChargeResults().size());
         Assertions.assertEquals(expectedResult, transactionLog.getChargeResults().get(0));
     }
+
+    //TODO dla przypadku DECLINE
+
+    //TODO dla przypadku UNREACHABLE
 }
