@@ -7,7 +7,10 @@ public class Application {
 
     public static void main(String[] args) {
 
-        BillingService billingService = new CreditCardBillingService();
+        CreditCardProcessor creditCardProcessor = new PaypalCreditCardProcessor();
+        TransactionLog transactionLog = new DatabaseTransactionLog();
+
+        BillingService billingService = new CreditCardBillingService(creditCardProcessor, transactionLog);
 
         PizzaOrder order = new PizzaOrder(new BigDecimal(45));
         CreditCard creditCard = CreditCard.builder()
