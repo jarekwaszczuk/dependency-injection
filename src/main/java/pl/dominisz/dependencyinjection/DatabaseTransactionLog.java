@@ -7,7 +7,7 @@ public class DatabaseTransactionLog implements TransactionLog {
 
     private UnreachableExceptionRepository unreachableExceptionRepository;
 
-    public DatabaseTransactionLog(){
+    public DatabaseTransactionLog(ChargeResultRepository chargeResultRepository, UnreachableExceptionRepository unreachableExceptionRepository){
         System.out.println("DatabaseTransactionLog created");
     }
 

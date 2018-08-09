@@ -7,8 +7,20 @@ public class Application {
 
     public static void main(String[] args) {
 
+        PizzaOrderRepository pizzaOrderRepository = new PizzaOrderRepository();
+        IngredientsService ingredientsService = new IngredientsService();
+        DiscountCalculator discountCalculator = new DiscountCalculator();
+        UserService userService = new UserService();
+
+        PizzaOrderService pizzaOrderService = new PizzaOrderService(pizzaOrderRepository, ingredientsService, discountCalculator, userService);
+        PizzaOrderController pizzaOrderController = new PizzaOrderController(pizzaOrderService);
+
         CreditCardProcessor creditCardProcessor = new PaypalCreditCardProcessor();
-        TransactionLog transactionLog = new DatabaseTransactionLog();
+
+        ChargeResultRepository chargeResultRepository = new ChargeResultRepository();
+        UnreachableExceptionRepository unreachableExceptionRepository = new UnreachableExceptionRepository();
+
+        TransactionLog transactionLog = new DatabaseTransactionLog(chargeResultRepository, unreachableExceptionRepository);
 
         BillingService billingService = new CreditCardBillingService(creditCardProcessor, transactionLog);
 
@@ -17,11 +29,11 @@ public class Application {
                 .number("4321432143214321")
                 .firstName("Jarosław")
                 .lastName("Waszczuk")
-                .expireDate(LocalDate.of(2020,8,31))
+                .expireDate(LocalDate.of(2020, 8, 31))
                 .cvv("012")
                 .build();
 
-        Receipt receipt = billingService.chargeOrder(order,creditCard);
+        Receipt receipt = billingService.chargeOrder(order, creditCard);
 
         System.out.println(receipt.toString());
     }
