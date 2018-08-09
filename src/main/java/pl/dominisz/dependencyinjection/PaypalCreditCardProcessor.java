@@ -1,8 +1,11 @@
 package pl.dominisz.dependencyinjection;
 
+import org.springframework.stereotype.Component;
+
 import java.math.BigDecimal;
 import java.util.Random;
 
+@Component
 public class PaypalCreditCardProcessor implements CreditCardProcessor {
 
     private Random random = new Random();

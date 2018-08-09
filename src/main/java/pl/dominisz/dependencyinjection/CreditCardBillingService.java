@@ -1,10 +1,15 @@
 package pl.dominisz.dependencyinjection;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class CreditCardBillingService implements BillingService {
 
     private final CreditCardProcessor processor;
     private final TransactionLog transactionLog;
 
+    @Autowired
     public CreditCardBillingService(CreditCardProcessor creditCardProcessor, TransactionLog transactionLog){
         System.out.println("CreditCardBillingService created");
         this.processor = creditCardProcessor;

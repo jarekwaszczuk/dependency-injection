@@ -1,28 +1,19 @@
 package pl.dominisz.dependencyinjection;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@ComponentScan
 public class Application {
 
     public static void main(String[] args) {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(Application.class);
 
-        PizzaOrderRepository pizzaOrderRepository = new PizzaOrderRepository();
-        IngredientsService ingredientsService = new IngredientsService();
-        DiscountCalculator discountCalculator = new DiscountCalculator();
-        UserService userService = new UserService();
-
-        PizzaOrderService pizzaOrderService = new PizzaOrderService(pizzaOrderRepository, ingredientsService, discountCalculator, userService);
-        PizzaOrderController pizzaOrderController = new PizzaOrderController(pizzaOrderService);
-
-        CreditCardProcessor creditCardProcessor = new PaypalCreditCardProcessor();
-
-        ChargeResultRepository chargeResultRepository = new ChargeResultRepository();
-        UnreachableExceptionRepository unreachableExceptionRepository = new UnreachableExceptionRepository();
-
-        TransactionLog transactionLog = new DatabaseTransactionLog(chargeResultRepository, unreachableExceptionRepository);
-
-        BillingService billingService = new CreditCardBillingService(creditCardProcessor, transactionLog);
+        BillingService billingService = applicationContext.getBean(BillingService.class);
 
         PizzaOrder order = new PizzaOrder(new BigDecimal(45));
         CreditCard creditCard = CreditCard.builder()
