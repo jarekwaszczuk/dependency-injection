@@ -1,4 +1,4 @@
-package pl.dominisz.dependencyinjection;
+package pl.dominisz.dependencyinjection.exception;
 
 public class UnreachableException extends RuntimeException {
 

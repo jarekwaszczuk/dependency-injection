@@ -4,6 +4,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
+import pl.dominisz.dependencyinjection.model.CreditCard;
+import pl.dominisz.dependencyinjection.model.PizzaOrder;
+import pl.dominisz.dependencyinjection.model.Receipt;
+import pl.dominisz.dependencyinjection.service.BillingService;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

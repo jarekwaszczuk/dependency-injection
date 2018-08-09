@@ -1,4 +1,4 @@
-package pl.dominisz.dependencyinjection;
+package pl.dominisz.dependencyinjection.model;
 
 import lombok.Builder;
 import lombok.Data;

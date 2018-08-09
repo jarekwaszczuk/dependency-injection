@@ -1,7 +1,12 @@
-package pl.dominisz.dependencyinjection;
+package pl.dominisz.dependencyinjection.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import pl.dominisz.dependencyinjection.exception.UnreachableException;
+import pl.dominisz.dependencyinjection.model.ChargeResult;
+import pl.dominisz.dependencyinjection.model.CreditCard;
+import pl.dominisz.dependencyinjection.model.PizzaOrder;
+import pl.dominisz.dependencyinjection.model.Receipt;
 
 @Component
 public class CreditCardBillingService implements BillingService {

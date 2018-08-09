@@ -2,6 +2,13 @@ package pl.dominisz.dependencyinjection;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import pl.dominisz.dependencyinjection.model.ChargeResult;
+import pl.dominisz.dependencyinjection.model.CreditCard;
+import pl.dominisz.dependencyinjection.model.PizzaOrder;
+import pl.dominisz.dependencyinjection.model.Receipt;
+import pl.dominisz.dependencyinjection.service.BillingService;
+import pl.dominisz.dependencyinjection.service.CreditCardBillingService;
+import pl.dominisz.dependencyinjection.service.CreditCardProcessor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

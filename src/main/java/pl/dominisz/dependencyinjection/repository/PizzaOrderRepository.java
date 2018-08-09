@@ -1,4 +1,4 @@
-package pl.dominisz.dependencyinjection;
+package pl.dominisz.dependencyinjection.repository;
 
 import org.springframework.stereotype.Component;
 

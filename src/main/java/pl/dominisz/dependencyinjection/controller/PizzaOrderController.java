@@ -1,4 +1,7 @@
-package pl.dominisz.dependencyinjection;
+package pl.dominisz.dependencyinjection.controller;
+
+import pl.dominisz.dependencyinjection.model.PizzaOrder;
+import pl.dominisz.dependencyinjection.service.PizzaOrderService;
 
 public class PizzaOrderController {
 

@@ -1,4 +1,8 @@
-package pl.dominisz.dependencyinjection;
+package pl.dominisz.dependencyinjection.service;
+
+import pl.dominisz.dependencyinjection.model.CreditCard;
+import pl.dominisz.dependencyinjection.model.PizzaOrder;
+import pl.dominisz.dependencyinjection.model.Receipt;
 
 public interface BillingService {
 

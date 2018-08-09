@@ -1,5 +1,9 @@
 package pl.dominisz.dependencyinjection;
 
+import pl.dominisz.dependencyinjection.model.ChargeResult;
+import pl.dominisz.dependencyinjection.model.CreditCard;
+import pl.dominisz.dependencyinjection.service.CreditCardProcessor;
+
 import java.math.BigDecimal;
 
 public class TestingCreditCardProcessor implements CreditCardProcessor {

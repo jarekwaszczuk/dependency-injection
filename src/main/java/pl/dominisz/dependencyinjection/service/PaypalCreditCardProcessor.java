@@ -1,6 +1,9 @@
-package pl.dominisz.dependencyinjection;
+package pl.dominisz.dependencyinjection.service;
 
 import org.springframework.stereotype.Component;
+import pl.dominisz.dependencyinjection.model.ChargeResult;
+import pl.dominisz.dependencyinjection.model.CreditCard;
+import pl.dominisz.dependencyinjection.exception.UnreachableException;
 
 import java.math.BigDecimal;
 import java.util.Random;
